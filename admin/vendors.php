@@ -31,34 +31,71 @@ if (isset($_GET['category'])) {
 
             <!-- Main content -->
             <section class="content">
+                <?php
+        if (isset($_SESSION['error'])) {
+          echo "
+            <div class='alert alert-danger alert-dismissible'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4><i class='icon fa fa-warning'></i> Error!</h4>
+              " . $_SESSION['error'] . "
+            </div>
+          ";
+          unset($_SESSION['error']);
+        }
+        if (isset($_SESSION['success'])) {
+          echo "
+            <div class='alert alert-success alert-dismissible'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4><i class='icon fa fa-check'></i> Success!</h4>
+              " . $_SESSION['success'] . "
+            </div>
+          ";
+          unset($_SESSION['success']);
+        }
+        ?>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="box">
+
                             <div class="box-header with-border">
+                                
                                 <div class="pull-right">
-                                    <form method="POST" class="form-inline" action="sales_print.php">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control pull-right col-sm-8" id="reservation"
-                                                name="date_range">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <label>Category: </label>
+                                            <select class="form-control input-sm" id="select_category">
+                                                <option value="0">ALL</option>
+                                                <?php
+                        $conn = $pdo->open();
+
+                        $stmt = $conn->prepare("SELECT * FROM category");
+                        $stmt->execute();
+
+                        foreach ($stmt as $crow) {
+                          $selected = ($crow['id'] == $catid) ? 'selected' : '';
+                          echo "
+                            <option value='" . $crow['id'] . "' " . $selected . ">" . $crow['name'] . "</option>
+                          ";
+                        }
+
+                        $pdo->close();
+                        ?>
+                                            </select>
                                         </div>
-                                        <button type="submit" class="btn btn-success btn-sm btn-flat" name="print"><span
-                                                class="glyphicon glyphicon-print"></span> Print</button>
                                     </form>
                                 </div>
                             </div>
+
+
+
                             <div class="box-body">
                                 <table id="example1" class="table table-bordered">
                                     <thead>
-                                        <th class="hidden"></th>
-                                        <th>Date</th>
-                                        <th>Buyer Name</th>
-                                        <th>Transaction#</th>
-                                        <th>Amount</th>
-                                        <th>Full Details</th>
-                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Photo</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        <th>Views Today</th>
                                         <th>Tools</th>
                                     </thead>
                                     <tbody>
@@ -66,27 +103,24 @@ if (isset($_GET['category'])) {
                     $conn = $pdo->open();
 
                     try {
-                      $stmt = $conn->prepare("SELECT *, sales.id AS salesid FROM sales LEFT JOIN users ON users.id=sales.user_id ORDER BY sales_date DESC");
+                      $now = date('Y-m-d');
+                      $stmt = $conn->prepare("SELECT * FROM products $where");
                       $stmt->execute();
                       foreach ($stmt as $row) {
-                        $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE details.sales_id=:id");
-                        $stmt->execute(['id' => $row['salesid']]);
-                        $total = 0;
-                        foreach ($stmt as $details) {
-                          $subtotal = $details['price'] * $details['quantity'];
-                          $total += $subtotal;
-                        }
+                        $image = (!empty($row['photo'])) ? '../images/' . $row['photo'] : '../images/noimage.jpg';
+                        $counter = ($row['date_view'] == $now) ? $row['counter'] : 0;
                         echo "
                           <tr>
-                            <td class='hidden'></td>
-                            <td>" . date('M d, Y', strtotime($row['sales_date'])) . "</td>
-                            <td>" . $row['firstname'] . ' ' . $row['lastname'] . "</td>
-                            <td>" . $row['pay_id'] . "</td>
-                            <td>Rs " . number_format($total, 2) . "</td>
-                            <td><button type='button' class='btn btn-info btn-sm btn-flat transact' data-id='" . $row['salesid'] . "'><i class='fa fa-search'></i> View</button></td>
-                            <td>Pending</td>
+                            <td>" . $row['name'] . "</td>
                             <td>
-                              <button class='btn btn-success btn-sm text btn-flat' data-id='" . $row['id'] . "'>Accept</button>
+                              <img src='" . $image . "' height='30px' width='30px'>
+                              <span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='" . $row['id'] . "'><i class='fa fa-edit'></i></a></span>
+                            </td>
+                            <td><a href='#description' data-toggle='modal' class='btn btn-info btn-sm btn-flat desc' data-id='" . $row['id'] . "'><i class='fa fa-search'></i> View</a></td>
+                            <td>Rs " . number_format($row['price'], 2) . "</td>
+                            <td>" . $counter . "</td>
+                            <td>
+                              <button class='btn btn-success btn-sm edit btn-flat' data-id='" . $row['id'] . "'><i class='fa fa-edit'></i> Edit</button>
                               <button class='btn btn-danger btn-sm delete btn-flat' data-id='" . $row['id'] . "'><i class='fa fa-trash'></i> Delete</button>
                             </td>
                           </tr>
@@ -117,10 +151,6 @@ if (isset($_GET['category'])) {
     <?php include 'includes/scripts.php'; ?>
     <script>
     $(function() {
-        $(document).on('click', '.text', function(e) {
-            <?php echo 'alert("This order is accepted")'; ?>
-        });
-
         $(document).on('click', '.edit', function(e) {
             e.preventDefault();
             $('#edit').modal('show');

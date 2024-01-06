@@ -16,13 +16,19 @@ try {
 $pdo->close();
 
 ?>
-<?php include 'includes/header.php'; ?>
+<html>
+<head>
+<header>
+	
+</header>
+</head>
+
 
 <body class="hold-transition skin-blue layout-top-nav">
-    <div class="wrapper">
-
+    
+<?php include 'includes/header.php'; ?>
         <?php include 'includes/navbar.php'; ?>
-
+<div class="wrapper">
         <div class="content-wrapper">
             <div class="container">
 
@@ -68,9 +74,9 @@ $pdo->close();
 
 							?>
                         </div>
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                             <?php include 'includes/sidebar.php'; ?>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
 

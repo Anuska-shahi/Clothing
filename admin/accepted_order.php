@@ -25,7 +25,7 @@ if (isset($_GET['category'])) {
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li>Order</li>
-                    <li class="active">Order List</li>
+                    <li class="active">Accepted Order List</li>
                 </ol>
             </section>
 
@@ -84,9 +84,9 @@ if (isset($_GET['category'])) {
                             <td>" . $row['pay_id'] . "</td>
                             <td>Rs " . number_format($total, 2) . "</td>
                             <td><button type='button' class='btn btn-info btn-sm btn-flat transact' data-id='" . $row['salesid'] . "'><i class='fa fa-search'></i> View</button></td>
-                            <td>Pending</td>
+                            <td>Processing</td>
                             <td>
-                              <button class='btn btn-success btn-sm text btn-flat' data-id='" . $row['id'] . "'>Accept</button>
+                              <button class='btn btn-success btn-sm text delete btn-flat' data-id='" . $row['id'] . "'></i> Done</button>
                               <button class='btn btn-danger btn-sm delete btn-flat' data-id='" . $row['id'] . "'><i class='fa fa-trash'></i> Delete</button>
                             </td>
                           </tr>
@@ -118,7 +118,7 @@ if (isset($_GET['category'])) {
     <script>
     $(function() {
         $(document).on('click', '.text', function(e) {
-            <?php echo 'alert("This order is accepted")'; ?>
+            <?php echo 'alert("This order is completed")'; ?>
         });
 
         $(document).on('click', '.edit', function(e) {

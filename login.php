@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     }
     ?>
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Login</p>
 
             <form action="verify.php" method="POST">
                 <div class="form-group has-feedback">
@@ -47,7 +47,7 @@ if (isset($_SESSION['user'])) {
             </form>
             <br>
             <a href="password_forgot.php">I forgot my password</a><br>
-            <a href="signup.php" class="text-center">Register a new membership</a><br>
+            <a href="signup.php" class="text-center">Register</a><br>
             <a href="index.php"><i class="fa fa-home"></i> Home</a>
         </div>
     </div>

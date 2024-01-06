@@ -14,23 +14,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
 </head>
 
 <body>
-    <div class="main contactUs">
-        <header>
+    
+        
             <nav id="navbar">
                 <ul>
                     <li class="logo" id="nav-logo" onclick="location.href = 'index.php'">
-                        D Aquarium &#38; Pet Store
+                        The Clothing Store
                     </li>
-                    <li class="items"><a href="about.php">About Us</a></li>
-                    <li class="items"><a href="contact.php">Contact</a></li>
+                    <!-- <li class="items"><a href="about.php">About Us</a></li> -->
+                    <!-- <li class="items"><a href="contact.php">Contact</a></li> -->
                     <li class="items"><a href="login.php">Login</a></li>
                 </ul>
             </nav>
-        </header>
-    </div>
+       
+        <!-- <div class="main contactUs">
+    </div> -->
     <div class="contactForm">
         <div class="map-wrapper"></div>
         <div class="contactForm-wrapper">
@@ -85,10 +87,10 @@
                             </button>
                         </div>
                     </form>
-                    <iframe id="map"
+                    <!-- <iframe id="map"
                         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1129.834268719453!2d85.33314107834367!3d27.699738923048812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1684938762129!5m2!1sen!2snp"
                         style="border: 0" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                 </div>
             </main>
         </div>

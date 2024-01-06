@@ -35,14 +35,14 @@
       <li class="treeview">
         <a href="#">
           <i class="fa fa-barcode"></i>
-          <span>Vendor</span>
+          <span>Order</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="vendor.php"><i class="fa fa-circle-o"></i> Vendor List</a></li>
-          <li><a href="vendor.php"><i class="fa fa-circle-o"></i> Receive</a></li>
+          <li><a href="vendor.php"><i class="fa fa-circle-o"></i> Order List</a></li>
+          <li><a href="accepted_order.php"><i class="fa fa-circle-o"></i> Accepted Order</a></li>
         </ul>
       </li>
     </ul>

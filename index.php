@@ -10,7 +10,7 @@
     integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/index.js" defer></script>
-<section class="hero">
+<!-- <section class="hero">
     <div class="hero-contents col-10 col-m-7 col-s-3 marginAuto">
         <h1 class="hero-txt"><strong>D Aquarium &#38; Pet Store</strong></h1>
         <h3 class="hero-subtxt">
@@ -19,26 +19,38 @@
         <a class="hero-scroller" href="#navbar">SCROLL DOWN</a>
         <img class="hero-pets" src="assets/hero-pets.svg" />
     </div>
-</section>
+</section> -->
+<html>
+
 
 <body class="hold-transition skin-blue layout-top-nav">
     <div class="wrapper">
-
-        <?php include 'includes/navbar.php'; ?>
-
+    <?php include 'includes/navbar.php'; ?>
 
         <!-- Main content -->
         <div class="content-wrapper">
             <div class="main-hero-wrapper">
-                <div class="left-hero-wrapper col-6 col-m-8 col-s-1">
+                <!-- <div class="left-hero-wrapper col-6 col-m-8 col-s-1">
                     <h1 class="hero-header">One-stop solution for all your pet needs.</h1>
                     <h3 class="hero-subheader">Everything you need in one place.</h3>
                 </div>
                 <div class="right-hero-wrapper col-6 col-m-8 col-s-4">
-                    <img id="hero-husky" src="assets/husky-hero.webp" />
-                </div>
+                    <img id="hero-husky" src="index2.png" /> 
+                </div> -->
+                <img width=100% src="index2.jpg" />
             </div>
-        </div>
+            <!-- <div class='col-sm-4'>
+	       								<div class='box box-solid'>
+		       								<div class='box-body prod-body'>
+		       									<img src='" . $image . "' width='100%' height='230px' class='thumbnail'>
+		       									<h5><a href='product.php?product=" . $row['slug'] . "'>" . $row['name'] . "</a></h5>
+		       								</div>
+		       								<div class='box-footer'>
+		       									<b>Rs " . number_format($row['price'], 2) . "</b>
+		       								</div>
+	       								</div>
+	       							</div>
+        </div> -->
         <?php include 'includes/footer.php'; ?>
     </div>
 

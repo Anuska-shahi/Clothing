@@ -3,9 +3,9 @@
 
 <body class="hold-transition skin-blue layout-top-nav">
     <div class="wrapper">
-
+<header>
         <?php include 'includes/navbar.php'; ?>
-
+</header>
         <div class="content-wrapper">
             <div class="container">
 
