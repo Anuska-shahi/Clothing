@@ -35,6 +35,8 @@ if (isset($_SESSION['user'])) {
 						<td><img src='" . $image . "' width='30px' height='30px'></td>
 						<td>" . $row['name'] . "</td>
 						<td>Rs " . number_format($row['price'], 2) . "</td>
+						<td>M</td>
+						<td>Blue</td>
 						<td class='input-group'>
 							<span class='input-group-btn'>
             					<button type='button' id='minus' class='btn btn-default btn-flat minus' data-id='" . $row['cartid'] . "'><i class='fa fa-minus'></i></button>

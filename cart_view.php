@@ -22,6 +22,8 @@
                                             <th>Photo</th>
                                             <th>Name</th>
                                             <th>Price</th>
+                                            <th>Size</th>
+                                            <th>Color</th>
                                             <th width="20%">Quantity</th>
                                             <th>Subtotal</th>
                                         </thead>

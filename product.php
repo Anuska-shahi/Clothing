@@ -111,6 +111,8 @@ if ($product['date_view'] == $now) {
                                         <select>  
                                             <option value="Select">Select</option>
                                             <option value="Vineet">S</option>  
+                                            <option value="Vineet">M</option> 
+                                            <option value="Vineet">L</option> 
                                             <option value="Sumit">XL</option>  
                                             <option value="Dorilal">XXL</option>  
                                         </select>
@@ -118,9 +120,9 @@ if ($product['date_view'] == $now) {
                                     <p><b>Select Color:</b>
                                         <select>  
                                             <option value="Select">Select</option>
-                                            <option value="Vineet">S</option>  
-                                            <option value="Sumit">XL</option>  
-                                            <option value="Dorilal">XXL</option>  
+                                            <option value="Vineet">Red</option>  
+                                            <option value="Sumit">Blue</option>  
+                                            <option value="Dorilal">Green</option>  
                                         </select>
                                     </p>
                                     <p><b>Description:</b></p>
