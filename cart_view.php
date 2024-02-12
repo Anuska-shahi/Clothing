@@ -33,8 +33,8 @@
                             <?php
 							if (isset($_SESSION['user'])) {
 								echo "
-								<input type='checkbox' name='cash-on-delivery' id='cash-on-delivery'>
-								<label for='cash-on-delivery'>Cash On Delivery</label>
+								<input type='checkbox' style='fontsize:50px' name='confirm' id='confirm'>
+								<label for='confirm'>Confirm</label>
 	        					<br/>
 	        				";
 							?>
@@ -49,9 +49,7 @@
 							}
 							?>
                         </div>
-                        <div class="col-sm-3">
-                            <?php include 'includes/sidebar.php'; ?>
-                        </div>
+                       
                     </div>
                 </section>
 
@@ -64,7 +62,7 @@
     <?php include 'includes/scripts.php'; ?>
     <script>
     var total = 0;
-    $("#cash-on-delivery").click(function() {
+    $("#confirm").click(function() {
         if ($(this).prop('checked')) {
             $("#pay").removeClass("pe-none").removeClass("btn-secondary");
             $("#pay").addClass("btn-primary");
@@ -73,6 +71,7 @@
             $("#pay").removeClass("btn-primary");
         }
     });
+    
     $(function() {
         $(document).on('click', '.cart_delete', function(e) {
             e.preventDefault();

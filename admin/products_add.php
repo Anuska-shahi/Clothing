@@ -9,6 +9,8 @@
 		$price = $_POST['price'];
 		$description = $_POST['description'];
 		$filename = $_FILES['photo']['name'];
+		$size = $_POST['size'];
+		$color = $_POST['color'];
 
 		$conn = $pdo->open();
 

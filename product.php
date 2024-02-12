@@ -78,6 +78,24 @@ if ($product['date_view'] == $now) {
                                                 <input type="hidden" value="<?php echo $product['prodid']; ?>"
                                                     name="id">
                                             </div>
+                                            <!-- <div class="form-group mb-3">
+                                                <label for="">Size</label>
+                                                <select>  
+                                                    <option value="Select">Select</option>
+                                                    <option value="Vineet">S</option>  
+                                                    <option value="Sumit">XL</option>  
+                                                    <option value="Dorilal">XXL</option>  
+                                                </select>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label for="">Color</label>
+                                                <select>  
+                                                    <option value="Select">Select</option>
+                                                    <option value="Vineet">S</option>  
+                                                    <option value="Sumit">XL</option>  
+                                                    <option value="Dorilal">XXL</option>  
+                                                </select>
+                                            </div> -->
                                             <button type="submit" class="btn btn-primary btn-lg btn-flat"><i
                                                     class="fa fa-shopping-cart"></i> Add to Cart</button>
                                         </div>
@@ -89,6 +107,22 @@ if ($product['date_view'] == $now) {
                                     <p><b>Category:</b> <a
                                             href="category.php?category=<?php echo $product['cat_slug']; ?>"><?php echo $product['catname']; ?></a>
                                     </p>
+                                    <p><b>Select Size:</b>
+                                        <select>  
+                                            <option value="Select">Select</option>
+                                            <option value="Vineet">S</option>  
+                                            <option value="Sumit">XL</option>  
+                                            <option value="Dorilal">XXL</option>  
+                                        </select>
+                                    </p>
+                                    <p><b>Select Color:</b>
+                                        <select>  
+                                            <option value="Select">Select</option>
+                                            <option value="Vineet">S</option>  
+                                            <option value="Sumit">XL</option>  
+                                            <option value="Dorilal">XXL</option>  
+                                        </select>
+                                    </p>
                                     <p><b>Description:</b></p>
                                     <p><?php echo $product['description']; ?></p>
                                 </div>
@@ -98,9 +132,7 @@ if ($product['date_view'] == $now) {
                                 data-href="http://localhost/ecommerce/product.php?product=<?php echo $slug; ?>"
                                 data-numposts="10" width="100%"></div>
                         </div>
-                        <div class="col-sm-3">
-                            <?php include 'includes/sidebar.php'; ?>
-                        </div>
+                        
                     </div>
                 </section>
 
